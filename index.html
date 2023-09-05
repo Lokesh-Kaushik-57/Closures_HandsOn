@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures HandsOn</title>
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+    <h2>Closures Hands On</h2>
+
+     <div>
+        <p>Q1: Print output: </p>
+     </div>
+     <div>
+        <img src="./CodeSnap/Question1.png" alt="No-Image">
+     </div>
+     <pre>
+        OUTPUT:
+            1
+            2
+            3
+            4
+
+        REASON:
+        The output is 1, 2, 3, 4 because the counter function returns an inner function IncreaseCounter,
+        which increments a private counter variable. Each time counter() is called,
+        it increases and returns the updated counter value, starting from 1 and incrementing by 1 with each call.
+     </pre>
+     <hr>
+     <br>
+
+     <div>
+        <p>Q2: Print output: </p>
+     </div>
+     <div>
+        <img src="./CodeSnap/Question2.png" alt="No-Image">
+     </div>
+     <pre>
+        OUTPUT:
+            1
+            0
+
+        REASON:
+        The code defines a global variable count with an initial value of 0.
+        Inside an IIFE, there's a local variable count declared with the let keyword,
+        shadowing the global count. When count is logged within the if block, it displays 1.
+        Outside the if block, the local variable goes out of scope, and the global count remains 0, so it logs 0.
+     </pre>
+     <hr><br>
+
+     <div>
+        <p>Q3: Print output: </p>
+     </div>
+     <div>
+        <img src="./CodeSnap/Question3.png" alt="No-Image">
+     </div>
+     <pre>
+        OUTPUT:
+            3
+            3
+            3
+
+        REASON:
+        The output of the function is 3, printed three times with a 1000ms delay between each log.
+        This happens because the for loop completes before setTimeout executes,
+        and it captures the final value of i, which is 3, in a closure.
+     </pre>
+     <hr> <br>
+
+
+
+     <div>
+        <p>Q4: Write a code to calculate area of a rectangle using inner function. In this case outer 
+        function should accept parameter length and inner function should accept parameter breadth.</p>
+     </div>
+     <div>
+        <img src="./CodeSnap/Question4.png" alt="No-Image">
+     </div>
+     <pre>
+        Explanation:
+            in this code, there are 2 functions outer function lengthFun which has length as parameter
+            and inner function calArea which has breadth as parameter
+            and inside calArea function, calculation for area of rectangle has been done.
+            also console.log statement has been call in calArea function.
+     </pre>
+     <hr><br>
+
+        <div>
+            <p>Q5: Take a variable in outer function and create an inner function to increase the counter every time it is called</p>
+        </div>
+        <div>
+            <img src="./CodeSnap/Question5.png" alt="No-Image">
+        </div>
+        <pre>
+            OUTPUT:
+                ReferenceError: counter is not defined
+
+            REASON:
+            This error occurs because the counter variable is scoped to the outerFunction,
+            and it cannot be accessed from outside that function's scope. 
+        </pre>
+        <hr><br>
+
+        <div>
+            <p>Q6: Print the Output:</p>
+        </div>
+        <div>
+            <img src="./CodeSnap/Question6.png" alt="No-Image">
+        </div>
+        <pre>
+            OUTPUT:
+                12
+
+            REASON:
+            IIFE creates a closure over the outer scope,
+            allowing it to access the variable a from the enclosing scope.
+            In this case, it successfully accesses and alerts the value of a, which is 12.
+        </pre>
+        <hr><br>
+
+        <div>
+            <p>Q7: Print the Output: </p>
+        </div>
+        <div>
+            <img src="./CodeSnap/Question7.png" alt="No-Image">
+        </div>
+        <pre>
+            OUTPUT:
+                undefined
+
+            REASON:
+            The output is undefined because of variable hoisting in JavaScript.
+            The variable a is declared inside the function with var,
+            so its declaration is hoisted to the top of the function scope,
+            making it available but uninitialized at the time of the console.log(a) statement.
+        </pre>
+        <hr><br>
+
+         <div>
+            <p>Q8: Print the Output: </p>
+        </div>
+        <div>
+            <img src="./CodeSnap/Question8.png" alt="No-Image">
+        </div>
+        <pre>
+            OUTPUT:
+                outerArg = 123
+                innerArg = 456
+                outerVar = a
+                innerVar = b
+                globalVar = xyz
+
+            REASON:
+            outerFunc is invoked with outerArg equal to 123.
+            Inside outerFunc, innerFunc is invoked with innerArg equal to 456.
+            Inside innerFunc, the variables innerVar, outerVar, and globalVar are logged along with their values.
+            All variables are correctly scoped, and their values are accessed as expected from their respective scopes.
+        </pre>
+</body>
+</html>
